@@ -1,0 +1,209 @@
+<div class="main_container">
+  <div class="logo_container">
+    <div class="logo"></div>
+  </div>
+
+  <div class="email_container">
+    <input
+      [(ngModel)]="user_email"
+      class="input_text"
+      type="email"
+      id="email"
+      name="email"
+      placeholder="Correo electrónico"
+    />
+  </div>
+
+  <div class="password_container">
+    <input
+      [(ngModel)]="user_password"
+      class="input_text"
+      type="password"
+      id="password"
+      name="pasword"
+      placeholder="Contraseña"
+    />
+  </div>
+
+  <div class="forget_container">
+    <a (click)="show_remember = true" class="link_text"
+      >¿Olvidaste tu Contraseña?</a
+    >
+  </div>
+
+  <div class="remember_container">
+    <div class="checkbox">
+      <input [(ngModel)]="remember_me" type="checkbox" />
+      <label>Recordarme</label>
+    </div>
+  </div>
+
+  <div class="ingresar_container">
+    <button type="button" class="button" (click)="doSomething()">
+      Ingresar a PILLALERT
+    </button>
+  </div>
+
+  <div class="not_account_container">
+    <span class="regular_text">¿Aún no tienes cuenta en PILLALERT?</span>
+  </div>
+
+  <div class="register_container">
+    <a class="link_text" (click)="show_register = true"
+      >Registrate a PILLALERT</a
+    >
+  </div>
+</div>
+
+<div *ngIf="show_remember" class="modal_background">
+  <div class="modal remember_modal_container">
+    <div class="modal_tittle_container">
+      <div class="bold_text">¿Olvidaste tu contraseña?</div>
+    </div>
+
+    <div class="modal_body_container">
+      <div class="regular_text">
+        Ingresa tu correo electrónico registrado y te enviaremos un email de
+        recuperación.
+      </div>
+    </div>
+
+    <div class="remember_modal_email_container">
+      <input
+        [(ngModel)]="remember_user_email"
+        class="input_text"
+        type="email"
+        id="remember_email"
+        name="remember_email"
+        placeholder="Email registrado"
+      />
+    </div>
+
+    <div class="remember_modal_remember_button_container">
+      <button
+        type="button"
+        class="button"
+        (click)="show_remember_confirmation = true; show_remember = false"
+      >
+        Recuperar Contraseña
+      </button>
+    </div>
+
+    <div class="modal_close_container">
+      <button
+        (click)="show_remember = false"
+        type="button"
+        class="button_close"
+      >
+        X
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="show_remember_confirmation" class="modal_background">
+  <div class="modal remember_confimation_modal_container">
+    <div class="modal_tittle_container">
+      <div class="bold_text">RECUPERACIÓN EXITOSA</div>
+    </div>
+
+    <div class="modal_body_container">
+      <div class="regular_text">
+        Hemos enviado un correo de recuperación a tu cuenta. Revisalo e incresa
+        a tu cuenta con la contraseña temporal que hemos generado para ti.
+      </div>
+    </div>
+
+    <div class="modal_close_container">
+      <button
+        (click)="show_remember_confirmation = false"
+        type="button"
+        class="button_close"
+      >
+        X
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="show_register" class="modal_background">
+  <div class="modal register_modal_container">
+    <div class="modal_tittle_container">
+      <div class="bold_text">Registro</div>
+    </div>
+
+    <div class="modal_body_container">
+      <div class="regular_text">
+        Ingresando electrónico y una contraseña. Te enviaremos un mensaje a tu
+        correo electrónico para validar tu información.
+      </div>
+    </div>
+
+    <div class="register_modal_email_container">
+      <input
+        [(ngModel)]="register_user_email"
+        class="input_text"
+        type="email"
+        id="register_email"
+        name="register_email"
+        placeholder="Correo Electrónico"
+      />
+    </div>
+
+    <div class="register_modal_password_container">
+      <input
+        [(ngModel)]="register_user_password"
+        class="input_text"
+        type="email"
+        id="register_password"
+        name="register_password"
+        placeholder="Contraseña"
+      />
+    </div>
+
+    <div class="register_modal_register_button_container">
+      <button
+        type="button"
+        class="button"
+        (click)="show_register_confirmation = true; show_register = false"
+      >
+        Registrarme
+      </button>
+    </div>
+
+    <div class="modal_close_container">
+      <button
+        (click)="show_register = false"
+        type="button"
+        class="button_close"
+      >
+        X
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="show_register_confirmation" class="modal_background">
+  <div class="modal register_confimation_modal_container">
+    <div class="modal_tittle_container">
+      <div class="bold_text">REGISTRO EXITOSO</div>
+    </div>
+
+    <div class="modal_body_container">
+      <div class="regular_text">
+        Hemos realizado exitosamente el registro a la plataforma. Ya puedes
+        acceder y comenzar a gestionar tus alarmas.
+      </div>
+    </div>
+
+    <div class="modal_close_container">
+      <button
+        (click)="show_register_confirmation = false"
+        type="button"
+        class="button_close"
+      >
+        X
+      </button>
+    </div>
+  </div>
+</div>
