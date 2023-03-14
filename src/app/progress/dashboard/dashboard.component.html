@@ -1,0 +1,70 @@
+<div class="main_container">
+  <div class="nav_bar">
+    <div class="tittle">
+      <b>Hola Iván,</b> estos son tus resultados del mes:
+    </div>
+    <div class="user_info_container">
+      <div class="user_image">
+        <div>ID</div>
+      </div>
+      <div class="user_info">
+        <div><b>Ivan Dario</b></div>
+        <div>ivan@gmail.com</div>
+      </div>
+      <div class="hamburger_menu">
+        <span class="material-symbols-outlined"> more_vert </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="decorative_image"></div>
+
+  <div class="body_container">
+    <div class="calendar_container">
+      <div class="calendar_header">
+        <span class="button_icon material-symbols-outlined"> arrow_back </span>
+        <div class="calendar_tittle">{{ month_name }} {{ year }}</div>
+        <span class="button_icon material-symbols-outlined">
+          arrow_forward
+        </span>
+      </div>
+      <div class="calendar_body">
+        <table>
+          <thead>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let week of month_days; let i = index">
+              <td
+                [class]="'td_' + month_progress[i][j]"
+                *ngFor="let day of week; let j = index"
+              >
+                {{ day }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="graph_container">
+      <div class="graph"></div>
+      <div class="leyend">
+        Durante febrero, has consumido el 80% de las medicinas que habías
+        planeado tomar. Entre las medicinas que consumiste, Losartán fue la que
+        más utilizaste, mientras que Lexoritoxina fue la menos consumida. Para
+        lograr cumplir con el objetivo de consumir el 100% de tu tratamiento, te
+        recomendamos que trates de mejorar tus horarios de consumo. De esta
+        forma, podrás asegurarte de tomar tus medicinas según lo prescrito y
+        obtener los mejores resultados posibles en tu salud.
+      </div>
+    </div>
+  </div>
+</div>
