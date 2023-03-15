@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { UsersModule } from './users/users.module';
+import { ProgressModule } from './progress/progress.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { UsersModule } from './users/users.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    UsersModule
+    UsersModule,
+    ProgressModule
   ],
   providers: [],
   bootstrap: [AppComponent]

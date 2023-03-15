@@ -1,0 +1,163 @@
+<div class="main_container">
+  <div class="nav_bar">
+    <div class="tittle">
+      <b>Hola Iván,</b> estos son tus resultados del mes:
+    </div>
+    <div class="user_info_container">
+      <div class="user_image">
+        <div>ID</div>
+      </div>
+      <div class="user_info">
+        <div><b>Ivan Dario</b></div>
+        <div>ivan@gmail.com</div>
+      </div>
+      <div (click)="show_menu = true" class="hamburger_menu">
+        <span class="material-symbols-outlined"> more_vert </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="decorative_image"></div>
+
+  <div class="body_container">
+    <div class="calendar_container">
+      <div class="calendar_header">
+        <span (click)="changeMonth()" class="button_icon material-symbols-outlined"> arrow_back </span>
+        <div class="calendar_tittle">{{ month_name }} {{ year }}</div>
+        <span (click)="changeMonth()" class="button_icon material-symbols-outlined">
+          arrow_forward
+        </span>
+      </div>
+      <div class="calendar_body">
+        <table>
+          <thead>
+            <tr>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>T</th>
+              <th>F</th>
+              <th>S</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let week of month_days; let i = index">
+              <td
+                [class]="'td_' + month_progress[i][j]"
+                *ngFor="let day of week; let j = index"
+              >
+                {{ day }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="graph_container">
+      <div class="graph"></div>
+      <div class="leyend">
+        Durante febrero, has consumido el 80% de las medicinas que habías
+        planeado tomar. Entre las medicinas que consumiste, Losartán fue la que
+        más utilizaste, mientras que Lexoritoxina fue la menos consumida. Para
+        lograr cumplir con el objetivo de consumir el 100% de tu tratamiento, te
+        recomendamos que trates de mejorar tus horarios de consumo. De esta
+        forma, podrás asegurarte de tomar tus medicinas según lo prescrito y
+        obtener los mejores resultados posibles en tu salud.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="show_menu" class="menu_container">
+  <div class="menu">
+    <div (click)="show_change = true" class="menu_item">
+      <div class="menu_text"><b>Seguridad</b></div>
+      <div class="menu_text">Cambiar Contraseña</div>
+    </div>
+
+    <div (click)="logout()" class="menu_item">
+      <div class="menu_text"><b>Salir de Pillalert</b></div>
+      <div class="menu_text">Cerrar sesión de manera segura</div>
+    </div>
+  </div>
+  <div class="close_container">
+    <button (click)="show_menu = false" type="button" class="button_close">
+      X
+    </button>
+  </div>
+</div>
+
+<div *ngIf="show_change" class="modal_background">
+  <div class="modal change_modal_container">
+    <div class="modal_tittle_container">
+      <div class="bold_text">CAMBIAR CONTRASEÑA</div>
+    </div>
+
+    <div class="modal_body_container">
+      <div class="regular_text">Ingresa una nueva contraseña.</div>
+    </div>
+
+    <div class="change_modal_password_container">
+      <input
+        [(ngModel)]="change_password"
+        class="input_text"
+        type="email"
+        id="register_email"
+        name="register_email"
+        placeholder="Contraseña"
+      />
+    </div>
+
+    <div class="change_modal_password_confirmation_container">
+      <input
+        [(ngModel)]="change_password_confirmation"
+        class="input_text"
+        type="email"
+        id="register_password"
+        name="register_password"
+        placeholder="Confirmar Contraseña"
+      />
+    </div>
+
+    <div class="change_modal_button_container">
+      <button
+        type="button"
+        class="button"
+        (click)="show_change_confirmation = true; show_change = false"
+      >
+        Cambiar Contraseña
+      </button>
+    </div>
+
+    <div class="modal_close_container">
+      <button (click)="show_change = false" type="button" class="button_close">
+        X
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="show_change_confirmation" class="modal_background">
+  <div class="modal change_confimation_modal_container">
+    <div class="modal_tittle_container">
+      <div class="bold_text">CONTRASEÑA ACTUALIZADA</div>
+    </div>
+
+    <div class="modal_body_container">
+      <div class="regular_text">
+        Hemos cambiado exitosamente tu contraseña para acceder a PillAlert.
+      </div>
+    </div>
+
+    <div class="modal_close_container">
+      <button
+        (click)="show_change_confirmation = false"
+        type="button"
+        class="button_close"
+      >
+        X
+      </button>
+    </div>
+  </div>
+</div>

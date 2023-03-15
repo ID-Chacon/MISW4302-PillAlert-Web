@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-login',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.less'],
 })
 export class LoginComponent {
+
+  constructor(
+    private router: Router,
+   ) {}
   
   user_email: string = '';
   user_password: string = '';
@@ -21,13 +26,7 @@ export class LoginComponent {
   register_user_password: string = '';
 
 
-  doSomething() {
-    alert(
-        this.user_email +
-        ' ' +
-        this.user_password +
-        ' ' +
-        this.remember_me
-    );
+  login() {
+   this.router.navigate(['home'])
   }
 }
