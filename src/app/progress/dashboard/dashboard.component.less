@@ -1,3 +1,5 @@
+@import "../../app.component.less";
+
 @color_1: rgba(0, 0, 0, 1);
 @color_2: rgba(47, 61, 64, 1);
 @color_3: rgba(28, 27, 31, 1);
@@ -71,6 +73,7 @@
   flex-wrap: wrap;
   align-content: center;
   color: @color_2;
+  cursor: pointer;
 }
 
 .decorative_image {
@@ -178,6 +181,9 @@
   flex-wrap: wrap;
   justify-content: center;
   cursor: pointer;
+  &:hover {
+    background-color: @color_6;
+  }
 }
 
 .graph {
@@ -196,4 +202,85 @@
   font-family: @font_family_1;
   text-align: left;
   font-size: 14px;
+}
+
+.close_container {
+  width: 25px;
+  position: relative;
+  left: 290px;
+  top: 10px;
+  border: 0px;
+  outline: none;
+}
+
+.menu_container {
+  position: absolute;
+  left: calc(max(100% - 368px, 532px));
+  top: 60px;
+  width: 328px;
+  height: 192px;
+}
+
+.menu {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 1);
+  width: 328px;
+
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  position: absolute;
+  border: 1px solid @color_5;
+  padding-top: 48px;
+}
+
+.menu_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px 0px;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid @color_5;
+  }
+  border-radius: 12px;
+}
+.menu_text {
+  font-family: Roboto;
+  text-align: left;
+  font-size: 16px;
+  color: @color_3;
+  padding: 0px 16px;
+}
+
+.change_modal_container {
+  width: 360px;
+  height: 318px;
+}
+
+.change_modal_password_container {
+  width: 328px;
+  height: 56px;
+  position: absolute;
+  top: 125px;
+}
+
+.change_modal_password_confirmation_container {
+  width: 328px;
+  height: 56px;
+  position: absolute;
+  top: 190px;
+}
+
+.change_modal_button_container {
+  width: 190px;
+  height: 40px;
+  position: absolute;
+  top: 265px;
+}
+
+.change_confimation_modal_container {
+  width: 360px;
+  height: 182px;
 }

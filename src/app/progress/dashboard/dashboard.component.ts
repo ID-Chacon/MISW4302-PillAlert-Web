@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,4 +23,22 @@ export class DashboardComponent {
     [0, 1, 1, 1, 1, 1, 0],
     [0, 0, 0, 0, 0, 0, 0],
   ];
+
+  show_menu:boolean = false;
+  
+  show_change: boolean = false;
+  show_change_confirmation: boolean = false;
+  change_password: string = '';
+  change_password_confirmation: string = '';
+
+
+  constructor(private router: Router) {}
+
+  logout() {
+    this.router.navigate(['login']);
+  }
+
+  changeMonth() {
+    alert("No hay información para el mes solicitado")
+  }
 }
